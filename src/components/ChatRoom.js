@@ -13,7 +13,7 @@ function ChatRoom({ props }) {
   const updateScroll = () => {
     el.scrollTop = el.scrollHeight;
   };
-  const [message, setMessage] = React.useState(null);
+  const [message, setMessage] = React.useState("");
   const auth = props.firebase.auth;
   const firestore = useFirestore();
   useFirestoreConnect([
@@ -47,23 +47,27 @@ function ChatRoom({ props }) {
         history.push("/");
       });
   };
+  console.log(personalMsg);
   const submitHandler = (e) => {
     e.preventDefault();
     inp.current.value = "";
     const oldMessages = personalMsg[0].messages;
-    firestore
-      .collection("users")
-      .doc(auth.uid)
-      .update({
-        messages: [
-          ...oldMessages,
-          {
-            text: message,
-            author: auth.displayName,
-            createdAt: new Date(),
-          },
-        ],
-      });
+    if (message !== "") {
+      firestore
+        .collection("users")
+        .doc(auth.uid)
+        .update({
+          messages: [
+            ...oldMessages,
+            {
+              text: message,
+              author: auth.displayName,
+              createdAt: new Date(),
+            },
+          ],
+        });
+      setMessage("");
+    }
   };
   Allmsg &&
     Allmsg.sort((a, b) => {
