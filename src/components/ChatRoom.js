@@ -96,7 +96,7 @@ function ChatRoom({ props }) {
                     >
                       <fieldset>
                         <legend>{el.author}</legend>
-                        {el.text} -{" "}
+                        {el.text}
                         <span className="time">
                           {moment(el.createdAt.toDate()).calendar()}
                         </span>
