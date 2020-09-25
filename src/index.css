@@ -1,13 +1,222 @@
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  background: #ffeeee;
+  font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #333;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar {
+  width: 4px;
+}
+.container::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 20px;
+}
+.container::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 20px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.App {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  background: #fff;
+  margin: 20px;
+  width: 320px;
+  padding: 10px 5px;
+  padding-top: 40px;
+  border-radius: 16px;
+  border: 1px solid #333;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+fieldset {
+  border-radius: 16px;
+  background: #ffeeee;
+  max-width: 90%;
+  position: relative;
+  border: 1px solid #333;
+  padding: 5px 8px 5px;
+}
+.message-cont {
+  margin-bottom: 50px;
+}
+fieldset legend {
+  text-align: right;
+  padding: 3px 10px;
+  background: #200e30;
+  color: #fff;
+  border-radius: 16px;
+  font-size: 12px;
+}
+.message {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  margin: 10px 0;
+}
+.message.my {
+  justify-content: flex-end;
+}
+.message legend {
+  text-align: left;
+}
+.message.my legend {
+  text-align: right;
+}
+input,
+textarea {
+  border: 1px solid #333;
+  border-radius: 16px;
+
+  outline: 0;
+  width: 320px;
+  resize: none;
+  font-size: 16px;
+  padding: 10px;
+}
+textarea {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding-right: 40px;
+}
+textarea::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Handle on hover */
+textarea::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+.container form {
+  text-align: center;
+  display: flex;
+  z-index: 11;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  border-radius: 16px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  top: 482px;
+  width: 320px;
+  flex-direction: column;
+  margin-left: -6px;
+}
+.login input {
+  margin: 5px 0;
+}
+.login button {
+  border: 1px solid #200e30;
+  border-radius: 16px;
+  margin: 5px 0;
+  outline: 0;
+  width: 320px;
+  resize: none;
+  font-size: 16px;
+  padding: 10px;
+}
+.login .link {
+  padding: 5px 10px;
+}
+.login h2 {
+  text-align: center;
+}
+.login .link a {
+  margin-left: 10px;
+  font-weight: 600;
+}
+.tologin {
+  margin-top: 30px;
+}
+.tologin .btn {
+  margin-left: 10px;
+}
+button.send {
+  padding: 5px 10px;
+  border-radius: 16px;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+textarea::placeholder {
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #444;
+}
+.top {
+  position: fixed;
+  top: 20px;
+  z-index: 11;
+  border: 1px solid #333;
+  left: calc(50% - 20px);
+  transform: translate(-50%, 0);
+  padding: 11px;
+  height: 40px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  width: 320px;
+  background: #ffeeee;
+  margin: 0 20px;
+  box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.1);
+}
+.logo {
+  font-weight: 600;
+}
+button,
+.btn {
+  padding: 5px 10px;
+  background: #200e30;
+  color: #fff;
+  border: 1px solid #200e30;
+  outline: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.time {
+  bottom: 0;
+  right: 0;
+  color: #555;
+  font-size: 10px;
+  display: block;
+  text-align: right;
+}
+button,
+textarea {
+  font-family: sans-serif;
 }
