@@ -2,7 +2,7 @@ import React from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { useSelector, connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
 import { useFirestore, useFirestoreConnect } from "react-redux-firebase";
@@ -10,7 +10,7 @@ function ChatRoom({ props }) {
   const msgcont = React.useRef(null);
   const inp = React.useRef(null);
   const el = msgcont && msgcont.current;
-  function updateScroll() {
+  const  updateScroll = () => {
     el.scrollTop = el.scrollHeight;
   }
   const [message, setMessage] = React.useState(null);
@@ -138,7 +138,6 @@ function ChatRoom({ props }) {
       </div>
     );
   } else {
-    console.log(auth);
     return (
       <div className="tologin">
         You haven't signed in
