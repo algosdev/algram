@@ -65,14 +65,14 @@ function ChatRoom({ props }) {
         ],
       });
   };
+  Allmsg &&
+    Allmsg.sort((a, b) => {
+      return a.createdAt.seconds - b.createdAt.seconds;
+    });
   React.useEffect(() => {
     if (el) {
       updateScroll();
     }
-    Allmsg &&
-      Allmsg.sort((a, b) => {
-        return a.age - b.age;
-      });
   }, [auth.uid, Allmsg, auth.displayName, el, updateScroll]);
   if (!auth.isEmpty) {
     return (
