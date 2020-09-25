@@ -10,9 +10,9 @@ function ChatRoom({ props }) {
   const msgcont = React.useRef(null);
   const inp = React.useRef(null);
   const el = msgcont && msgcont.current;
-  const  updateScroll = () => {
+  const updateScroll = () => {
     el.scrollTop = el.scrollHeight;
-  }
+  };
   const [message, setMessage] = React.useState(null);
   const auth = props.firebase.auth;
   const firestore = useFirestore();
@@ -39,10 +39,6 @@ function ChatRoom({ props }) {
 
     return allmsg;
   });
-  Allmsg &&
-    Allmsg.sort((a, b) => {
-      return a.age - b.age;
-    });
   const SignOut = () => {
     firebase
       .auth()
@@ -63,7 +59,7 @@ function ChatRoom({ props }) {
           ...oldMessages,
           {
             text: message,
-            author: props.firebase.profile.name,
+            author: auth.displayName,
             createdAt: new Date(),
           },
         ],
@@ -73,17 +69,45 @@ function ChatRoom({ props }) {
     if (el) {
       updateScroll();
     }
+    Allmsg &&
+      Allmsg.sort((a, b) => {
+        return a.age - b.age;
+      });
   }, [auth.uid, Allmsg, auth.displayName, el, updateScroll]);
   if (!auth.isEmpty) {
     return (
-      <div ref={msgcont} className="container">
+      <div className="wrapper">
         <div className="top">
           <div className="logo">ALGRAM</div>
           <button className="btn" onClick={SignOut}>
             Log Out
           </button>
         </div>
-        <div>
+        <div ref={msgcont} className="container">
+          <div className="message-cont">
+            {!auth.isEmpty
+              ? Allmsg.map((el, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={`${
+                        el.author === auth.displayName ? "my" : null
+                      } message`}
+                    >
+                      <fieldset>
+                        <legend>{el.author}</legend>
+                        {el.text} -{" "}
+                        <span className="time">
+                          {moment(el.createdAt.toDate()).calendar()}
+                        </span>
+                      </fieldset>
+                    </div>
+                  );
+                })
+              : null}
+          </div>
+        </div>
+        <div className="msg">
           <form onSubmit={submitHandler}>
             <textarea
               data-gramm_editor="false"
@@ -110,30 +134,6 @@ function ChatRoom({ props }) {
               </svg>
             </button>
           </form>
-        </div>
-        <div className="message-cont">
-          {!auth.isEmpty
-            ? Allmsg.map((el, index) => {
-                return (
-                  <div
-                    key={index}
-                    className={`${
-                      el.author === auth.displayName ? "my" : null
-                    } message`}
-                  >
-                    <fieldset>
-                      <legend>{el.author}</legend>
-                      {el.text} -{" "}
-                      <span className="time">
-                        {moment(el.createdAt.toDate())
-                          .subtract(1, "days")
-                          .calendar()}
-                      </span>
-                    </fieldset>
-                  </div>
-                );
-              })
-            : null}
         </div>
       </div>
     );
