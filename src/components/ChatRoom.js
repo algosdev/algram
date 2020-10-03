@@ -47,7 +47,6 @@ function ChatRoom({ props }) {
         history.push("/");
       });
   };
-  console.log(personalMsg);
   const submitHandler = (e) => {
     e.preventDefault();
     inp.current.value = "";

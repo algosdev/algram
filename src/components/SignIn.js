@@ -42,6 +42,7 @@ function SignIn({ props }) {
             <input
               type="password"
               placeholder="Password"
+              autoComplete
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
