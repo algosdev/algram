@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import firebase from "firebase/app";
 import { connect } from "react-redux";
 import "firebase/auth";
@@ -50,10 +50,10 @@ function SignIn({ props }) {
           <div>
             <button>Login</button>
           </div>
-          <div className="link">
+          {/* <div className="link">
             <span>Do not have account?</span>
             <Link to="/signup">Sign up</Link>
-          </div>
+          </div> */}
         </form>
       </div>
     );
