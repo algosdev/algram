@@ -8,7 +8,7 @@ function App() {
     <Router>
       <div className="App">
         <Route exact path="/" component={SignIn} />
-        {/* <Route exact path="/signup" component={SignUp} /> */}
+        <Route exact path="/signup" component={SignUp} />
         <Route exact path="/chat" component={ChatRoom} />
       </div>
     </Router>
