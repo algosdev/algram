@@ -51,10 +51,10 @@ function SignIn({ props }) {
           <div>
             <button>Login</button>
           </div>
-          {/* <div className="link">
+           <div className="link">
             <span>Do not have account?</span>
             <Link to="/signup">Sign up</Link>
-          </div> */}
+          </div> 
         </form>
       </div>
     );
