@@ -6,11 +6,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #ffeeee;
+  background: #1d1d1d;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #333;
+  color: #1d1d1d;
 }
 
 ::-webkit-scrollbar {
@@ -36,7 +36,7 @@ body {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #fff;
 }
 .App {
   width: 100%;
@@ -45,41 +45,45 @@ body {
   justify-content: center;
 }
 .container {
-  background: #fff;
-  width: 320px;
-  padding: 10px 5px;
-  padding-top: 40px;
+  background: rgb(1, 10, 14);
+  width: 100vw;
+  max-width: 767px;
   border-radius: 16px;
-  border: 1px solid #333;
-  height: 500px;
+  height: 100vh;
+  margin: 0 auto;
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
 }
 fieldset {
-  border-radius: 16px;
-  background: #ffeeee;
-  max-width: 90%;
+  border-radius: 6px;
+  background: rgb(221, 221, 221);
+  border: 0;
+  max-width: 300px;
   position: relative;
-  border: 1px solid #333;
   padding: 5px 8px 5px;
 }
+fieldset p {
+  margin: 0;
+  max-width: 300px;
+  word-break: break-all;
+}
 .message-cont {
-  margin-bottom: 50px;
+  margin: 65px 5px 60px;
 }
 fieldset legend {
   text-align: right;
   padding: 3px 10px;
-  background: #200e30;
+  background: #1d1d1d;
   color: #fff;
-  border-radius: 16px;
+  border-radius: 6px;
   font-size: 12px;
 }
 .message {
   display: flex;
   width: 100%;
   justify-content: flex-start;
-  margin: 10px 0;
+  padding: 10px 0;
 }
 .message.my {
   justify-content: flex-end;
@@ -90,25 +94,43 @@ fieldset legend {
 .message.my legend {
   text-align: right;
 }
+.message.my .time {
+  color: rgb(192, 192, 192);
+}
+.message.my fieldset {
+  background: #3a3a3a;
+  color: #fff;
+  border: 0;
+}
+.msg form {
+  text-align: center;
+  display: flex;
+  z-index: 11;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 input,
 textarea {
-  border: 1px solid #333;
-  border-radius: 16px;
-
+  border: 0;
   outline: 0;
-  width: 320px;
+  width: 100%;
   resize: none;
   font-size: 16px;
   padding: 10px;
 }
 .wrapper {
   position: relative;
-  width: 320px;
-  margin: 10px;
+  width: 100%;
+  max-width: 767px;
 }
 textarea {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
   padding-right: 40px;
 }
 textarea::-webkit-scrollbar-thumb {
@@ -119,25 +141,12 @@ textarea::-webkit-scrollbar-thumb {
 textarea::-webkit-scrollbar-thumb:hover {
   background: transparent;
 }
-.msg form {
-  text-align: center;
-  display: flex;
-  z-index: 11;
-  position: absolute;
-  top: 480px;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  border-radius: 16px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  width: 320px;
-}
+
 .login input {
   margin: 5px 0;
 }
 .login button {
-  border: 1px solid #200e30;
+  border: 1px solid #1d1d1d;
   border-radius: 16px;
   margin: 5px 0;
   outline: 0;
@@ -170,7 +179,8 @@ button.send {
   background-color: transparent;
   cursor: pointer;
   position: absolute;
-  top: 0px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 0px;
 }
 textarea::placeholder {
@@ -182,19 +192,21 @@ textarea::placeholder {
   position: absolute;
   top: 0;
   z-index: 11;
-  border: 1px solid #333;
   padding: 11px;
-  height: 40px;
+  height: 60px;
   left: 0;
-  background: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  width: 320px;
-  background: #ffeeee;
-  box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  background: #1d1d1d;
+  color: #fff;
+}
+.top button {
+  background: #fff;
+  font-size: 16px;
+  color: #1d1d1d;
+  border-radius: 4px;
 }
 .logo {
   font-weight: 600;
@@ -202,9 +214,9 @@ textarea::placeholder {
 button,
 .btn {
   padding: 5px 10px;
-  background: #200e30;
+  background: #1d1d1d;
   color: #fff;
-  border: 1px solid #200e30;
+  border: 1px solid #1d1d1d;
   outline: 0;
   border-radius: 10px;
   cursor: pointer;

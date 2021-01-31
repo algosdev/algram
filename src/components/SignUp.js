@@ -1,9 +1,9 @@
-import React from "react";
-import { Redirect, Link } from "react-router-dom";
-import firebase from "firebase/app";
-import { connect } from "react-redux";
-import { useFirestore } from "react-redux-firebase";
-import "firebase/auth";
+import React from 'react';
+import { Redirect, Link } from 'react-router-dom';
+import firebase from 'firebase/app';
+import { connect } from 'react-redux';
+import { useFirestore } from 'react-redux-firebase';
+import 'firebase/auth';
 function SignUp({ props }) {
   const [isLogged, setLog] = React.useState(false);
   const [name, setName] = React.useState(null);
@@ -13,7 +13,7 @@ function SignUp({ props }) {
   const firestore = useFirestore();
   const submitHandler = (e) => {
     e.preventDefault();
-    if (name !== null && email !== null && password !== null) {
+    if (name && email && password) {
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
@@ -23,7 +23,7 @@ function SignUp({ props }) {
               displayName: name,
             });
           }
-          firestore.collection("users").doc(doc.user.uid).set({
+          firestore.collection('users').doc(doc.user.uid).set({
             email: email,
             name: name,
             messages: [],
@@ -34,7 +34,7 @@ function SignUp({ props }) {
           alert(err.message);
         });
     } else {
-      alert("Fill in all inputs!");
+      alert('Fill in all inputs!');
     }
   };
 
@@ -44,16 +44,16 @@ function SignUp({ props }) {
     }
   }, [auth.uid]);
   if (isLogged) {
-    return <Redirect to="/chat" />;
+    return <Redirect to='/chat' />;
   } else {
     return (
-      <div className="login">
+      <div className='login'>
         <h2>Sign Up</h2>
         <form onSubmit={submitHandler}>
           <div>
             <input
-              type="text"
-              placeholder="Name"
+              type='text'
+              placeholder='Name'
               onChange={(e) => {
                 setName(e.target.value);
               }}
@@ -61,8 +61,8 @@ function SignUp({ props }) {
           </div>
           <div>
             <input
-              type="text"
-              placeholder="Email"
+              type='text'
+              placeholder='Email'
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -70,8 +70,8 @@ function SignUp({ props }) {
           </div>
           <div>
             <input
-              type="password"
-              placeholder="Password"
+              type='password'
+              placeholder='Password'
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
@@ -81,9 +81,9 @@ function SignUp({ props }) {
             <button>Sign up</button>
           </div>
         </form>
-        <div className="link">
+        <div className='link'>
           <span>Already have account?</span>
-          <Link to="/">Sign in</Link>
+          <Link to='/'>Sign in</Link>
         </div>
       </div>
     );
