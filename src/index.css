@@ -144,15 +144,17 @@ textarea::-webkit-scrollbar-thumb:hover {
 
 .login input {
   margin: 5px 0;
+  border-radius: 6px;
 }
 .login button {
   border: 1px solid #1d1d1d;
-  border-radius: 16px;
+  border-radius: 6px;
   margin: 5px 0;
   outline: 0;
   width: 320px;
   resize: none;
   font-size: 16px;
+  background: #3a3a3a;
   padding: 10px;
 }
 .login .link {
@@ -210,6 +212,12 @@ textarea::placeholder {
 }
 .logo {
   font-weight: 600;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
 }
 button,
 .btn {
