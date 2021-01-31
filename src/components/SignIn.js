@@ -27,7 +27,8 @@ function SignIn({ props }) {
   } else {
     return (
       <div className='login'>
-        <h2>Sign In</h2>
+        <h1>Algram</h1>
+        <h3>Login</h3>
         <form onSubmit={submitHandler}>
           <div>
             <input
