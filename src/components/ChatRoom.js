@@ -42,7 +42,7 @@ function ChatRoom({ props }) {
       .auth()
       .signOut()
       .then(() => {
-        history.push('/');
+        history.push('/login');
       });
   };
   const submitHandler = (e) => {
@@ -142,7 +142,7 @@ function ChatRoom({ props }) {
     return (
       <div className='tologin'>
         You haven't signed in
-        <Link to='/' className='btn'>
+        <Link to='/login' className='btn'>
           Login
         </Link>
       </div>

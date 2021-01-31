@@ -169,9 +169,11 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 .tologin {
   margin-top: 30px;
+  color: #fff;
 }
 .tologin .btn {
   margin-left: 10px;
+  background: #3a3a3a;
 }
 button.send {
   padding: 5px 10px;

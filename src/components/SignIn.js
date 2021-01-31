@@ -23,7 +23,7 @@ function SignIn({ props }) {
     }
   }, [auth.uid, isLogged]);
   if (isLogged) {
-    return <Redirect to='/chat' />;
+    return <Redirect to='/' />;
   } else {
     return (
       <div className='login'>
