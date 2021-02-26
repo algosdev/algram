@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import 'firebase/auth';
